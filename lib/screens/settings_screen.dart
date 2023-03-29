@@ -43,13 +43,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 value: 1,
                 title: const Text('Masculino'),
                 groupValue: gender,
-                onChanged: (value) {},
+                onChanged: (value) {
+                  gender = value ?? 1;
+                  setState(() {});
+                },
               ),
               RadioListTile<int>(
                 value: 2,
                 title: const Text('Femenino'),
                 groupValue: gender,
-                onChanged: (value) {},
+                onChanged: (value) {
+                  gender = value ?? 2;
+                  setState(() {});
+                },
               ),
               const Divider(),
               Container(
@@ -60,7 +66,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     helperText:
                         'Nombre de usuario para mostrar en las publicaciones',
                   ),
-                  onChanged: (value) {},
+                  onChanged: (value) {
+                    name = value;
+                    setState(() {});
+                  },
                 ),
               ),
             ],
