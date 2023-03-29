@@ -2,10 +2,19 @@ import 'package:flutter/material.dart';
 
 import '../widgets/widgets.dart';
 
-class SettingsScreen extends StatelessWidget {
+class SettingsScreen extends StatefulWidget {
   static const String routeName = 'Setings';
 
   const SettingsScreen({Key? key}) : super(key: key);
+
+  @override
+  State<SettingsScreen> createState() => _SettingsScreenState();
+}
+
+class _SettingsScreenState extends State<SettingsScreen> {
+  bool isDarkMode = false;
+  int gender = 1;
+  String name = 'Pedro';
 
   @override
   Widget build(BuildContext context) {
@@ -23,20 +32,23 @@ class SettingsScreen extends StatelessWidget {
                   style: TextStyle(fontSize: 45, fontWeight: FontWeight.bold)),
               const Divider(),
               SwitchListTile.adaptive(
-                value: true,
+                value: isDarkMode,
                 title: const Text('Dark Mode'),
-                onChanged: (value) {},
+                onChanged: (value) {
+                  isDarkMode = value;
+                  setState(() {});
+                },
               ),
               RadioListTile<int>(
                 value: 1,
                 title: const Text('Masculino'),
-                groupValue: 1,
+                groupValue: gender,
                 onChanged: (value) {},
               ),
               RadioListTile<int>(
                 value: 2,
                 title: const Text('Femenino'),
-                groupValue: 1,
+                groupValue: gender,
                 onChanged: (value) {},
               ),
               const Divider(),
