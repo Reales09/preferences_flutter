@@ -9,7 +9,7 @@ class SideMenu extends StatelessWidget {
     return Drawer(
       child: ListView(
         children: [
-          _DrawerHeader(),
+          const _DrawerHeader(),
           ListTile(
             leading: const Icon(Icons.pages),
             title: Text('Home'),
